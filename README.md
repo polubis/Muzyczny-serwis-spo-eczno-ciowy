@@ -6,6 +6,8 @@ npm install --save font-awesome
 npm install --save react-router
 npm install --save react-router-dom
 npm install --save react-redux
+npm install --save redux-thunk
+npm install --save redux-devtools-extension --only=dev
 
 Technology stack:
 React + Redux + React-router + Redux-pesist
