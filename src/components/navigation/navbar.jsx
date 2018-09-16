@@ -9,19 +9,17 @@ const navbar = () => {
     return (
         <MotiveContext.Consumer>
             {motive => (
-                <nav id="navbar" style={{color: motive.fontColor}}>
+                <nav id="navbar">
                     <div className="btns">
-                        <Link path="/" icon="fa-home" motive={motive} />
-
+                        <Link path="/" icon="fa-home" color={motive.backgroundColor} />
                         <section>
-                            <Link path="/about" title="O nas"/>
-                            <Link path="/contact" title="Kontakt" />
-                            <Link path="/register" title="Rejestracja" />
-                            <Link path="/login" title="Logowanie" />
+                            <Link path="/about" title="O nas" color={motive.backgroundColor}/>
+                            <Link path="/contact" title="Kontakt" color={motive.backgroundColor}/>
+                            <Link path="/register" title="Rejestracja" color={motive.backgroundColor}/>
+                            <Link path="/login" title="Logowanie" color={motive.backgroundColor}/>
                         </section>
                     </div>
-                    <div className="space"></div>
-                    <figure>
+                    <figure className="shadow">
                         <div style={{backgroundImage: `url(${NavBackground})`}}>
                         </div>
                     </figure>

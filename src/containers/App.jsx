@@ -4,6 +4,7 @@ import Home from "./Home/Home";
 import { connect } from "react-redux";
 import ContextProvider from "../services/contextAPI/contextProvider";
 import Navbar from "../components/navigation/navbar";
+import Register from '../containers/Register/Register';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
 
             <Switch>
               <Route path="/" exact component={Home} />
+              <Route path="/register" exact component={Register} />
             </Switch>
           </div>
         </Router>

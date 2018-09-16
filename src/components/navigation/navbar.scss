@@ -2,19 +2,19 @@
     .btns{
         padding: 20px 35px;
         display: flex;
-        justify-content: space-between;
-    }
-    .space{
-        height: 25px;
         background: black;
+        justify-content: space-between;
+        section{
+            a {
+                margin: 0 10px;
+            }
+        }
     }
     figure{
         margin: 0;
         width: 100%;
         height: 400px;
         position: relative;
-        overflow: hidden;
-        background: #ffffff;
         div{
             position: absolute;
             top: 0;

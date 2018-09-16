@@ -2,19 +2,27 @@ a{
     padding: 0 10px;
     text-decoration: none;
     position: relative;
+    transition: .5s all;
     z-index: 2;
     font-size: 19px;
-    &::before{
+    color: #f2f2f2;
+    &:hover{
+        color:#FF7300;
+    }
+    &:not(.active-link)::before{
         content: '';
-        width: 0;
-        transition: .5s all;
-        left: 0;
         border: 2px solid transparent;
-        bottom: -23px;
         position: absolute;
+        width: 0;
+        bottom: -23px;
+        left: 0;
+        transition: .5s all;
     }
-    &:hover::before{
-        border: 2px solid #1EFB9A;
+    &:hover:not(.active-link)::before{
         width: 100%;
+        border-color: #FF7300;
     }
+}
+a.active-link{
+    color:#FF7300;
 }
