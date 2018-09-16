@@ -1,0 +1,20 @@
+a{
+    padding: 0 10px;
+    text-decoration: none;
+    position: relative;
+    z-index: 2;
+    font-size: 19px;
+    &::before{
+        content: '';
+        width: 0;
+        transition: .5s all;
+        left: 0;
+        border: 2px solid transparent;
+        bottom: -23px;
+        position: absolute;
+    }
+    &:hover::before{
+        border: 2px solid #1EFB9A;
+        width: 100%;
+    }
+}

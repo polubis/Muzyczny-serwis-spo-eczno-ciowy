@@ -1,0 +1,1 @@
+export const SET_PAGE_MOTIVE = "SET_PAGE_MOTIVE";

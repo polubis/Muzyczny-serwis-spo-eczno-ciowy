@@ -1,5 +1,28 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto';
+  font-family: 'Roboto', 'sans-serif';
+}
+
+#root, #app{
+  min-height: 100vh;
+}
+
+button{
+  font-family: inherit;
+  cursor: pointer;
+  
+  padding: 10px;
+  &:focus{
+    outline: none;
+  }
+}
+i{
+  font-size: 24px !important;
+}
+.abs-centered{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 }
