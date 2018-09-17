@@ -6,15 +6,12 @@ const modal = ({show, showIcon, close, children}) => (
 
   <Transition mountOnEnter unmountOnExit in={show} timeout={500}>
     {state => (
-      <div
-        className={`backdrop ${show ? "open-backdrop" : "hide-backdrop"}`}
-      >
+      <div className={`backdrop ${show ? "open-backdrop" : "hide-backdrop"}`}>
         {showIcon && <i onClick={close} className="fa fa-times" />}
-        <div
-          className={`modal-container ${show
+        <div className={`modal-container shadow ${show
             ? "modal-container-open"
-            : "modal-container-close"}`}
-        >
+            : "modal-container-close"}`}>
+            
           {children}
         </div>
       </div>

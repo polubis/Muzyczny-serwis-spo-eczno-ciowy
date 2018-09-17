@@ -43,7 +43,7 @@
    left: 50%;
    top: 50%;
    transform: translate(-50%, -50%);
-   background-color: #ffffff;
+   background-color: #f2f2f2;
    transition: .5s all ease-in-out;
 }
 .modal-container-open{
@@ -55,20 +55,20 @@
 @keyframes modal-in{
   0%{
       opacity: 0;
-      transform: translateY(-15deg);
+      transform: translate(-50%, -55%);
   }
   100%{
       opacity: 1;
-      transform: translateY(0);
+      transform: translate(-50%, -50%);
   }
 }
 @keyframes modal-out{
    0%{
         opacity: 1;
-        transform: translateY(0);
+        transform: translate(-50%, -50%);
    }
    100%{
         opacity: 0;
-        transform: translateY(-15deg);
+        transform: translate(-50%, -55%);
    }
 }

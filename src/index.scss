@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  letter-spacing: 1.1px;
   font-family: 'Roboto', 'sans-serif';
 }
 
@@ -11,14 +12,10 @@ body {
 button{
   font-family: inherit;
   cursor: pointer;
-  
   padding: 10px;
   &:focus{
     outline: none;
   }
-}
-i{
-  font-size: 24px !important;
 }
 .abs-centered{
   position: absolute;
@@ -27,5 +24,11 @@ i{
   margin: 0 auto;
 }
 .shadow{
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+input{
+  font-family: inherit;
+}
+input:focus{
+  outline: none;
 }

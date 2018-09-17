@@ -1,14 +1,18 @@
-import React from 'react';
+import React from "react";
+import './Home.scss';
+import NavBackground from "../../assets/home_nav_background.jpg";
 
-
-class Home extends React.PureComponent { 
-    render(){
-        return (
-            <div className="home">
-                Strona główna
-            </div>
-        )
-    }
+class Home extends React.PureComponent {
+  render() {
+    return (
+      <div id="home">
+        <figure className="shadow">
+          <div style={{ backgroundImage: `url(${NavBackground})` }} />
+        </figure>
+        Strona główna
+      </div>
+    );
+  }
 }
 
 export default Home;

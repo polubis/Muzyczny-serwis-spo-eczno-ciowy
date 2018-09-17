@@ -1,0 +1,28 @@
+.register-form-container{
+    width: 650px;
+    height: 750px;
+    h2{
+        margin: 0;
+        background: #FF0000;
+        color: #f2f2f2;
+        font-weight: 700;
+    }
+    h2{
+        padding: 30px;
+        display: flex;
+        align-items: center;
+        div{
+            span:last-of-type{
+                font-size: 13px;
+                padding: 5px 0;
+                font-weight: lighter;
+                color: #FFD8D8;
+            }
+            display: flex;
+            flex-flow: column;
+        }
+        .fa-registered{
+            margin-right: 15px;
+        }
+    }
+}

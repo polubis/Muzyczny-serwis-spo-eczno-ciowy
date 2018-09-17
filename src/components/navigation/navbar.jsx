@@ -1,46 +1,47 @@
 import React from "react";
 import "./navbar.scss";
 import { MotiveContext } from "../../services/contextAPI/context";
-import NavBackground from "../../assets/home_nav_background.jpg";
 import Button from "../common/button/button";
 import Link from "../common/link/link";
 
-const navbar = () => {
-  const isHomePage = window.location.href.endsWith("/") ? true : false;
+const navbar = ({togleRegisterModal, togleLoginForm}) => {
   return (
     <MotiveContext.Consumer>
       {motive => (
-        <nav id="navbar">
+        <nav id="navbar" className="shadow">
           <div className="btns">
             <Link path="/" icon="fa-home" color={motive.backgroundColor} />
             <section>
               <Link
                 path="/about"
                 title="O nas"
+                mainClass="normal-link"
                 color={motive.backgroundColor}
               />
               <Link
                 path="/contact"
                 title="Kontakt"
+                mainClass="normal-link"
                 color={motive.backgroundColor}
               />
-              <Link
-                path="/register"
-                title="Rejestracja"
+
+              <Button
+                onClick={togleLoginForm}
                 color={motive.backgroundColor}
-              />
-              <Link
-                path="/login"
+                btnClass="normal-btn login-btn"
                 title="Logowanie"
+                icon="fa-chevron-up"
+              />
+
+              <Button
+                onClick={togleRegisterModal}
                 color={motive.backgroundColor}
+                btnClass="normal-btn register-btn"
+                title="Rejestracja"
+                icon="fa-registered"
               />
             </section>
           </div>
-          {isHomePage && (
-            <figure className="shadow">
-              <div style={{ backgroundImage: `url(${NavBackground})` }} />
-            </figure>
-          )}
         </nav>
       )}
     </MotiveContext.Consumer>

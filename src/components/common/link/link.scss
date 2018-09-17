@@ -1,28 +1,36 @@
-a{
+.link{
     padding: 0 10px;
     text-decoration: none;
     position: relative;
     transition: .5s all;
     z-index: 2;
-    font-size: 19px;
+    font-size: 17px;
     color: #f2f2f2;
     &:hover{
-        color:#FF7300;
+        color:#FF0000;
     }
+    i{
+        margin-top: 6px;
+    }
+}
+a.active-link{
+    color:#FF0000;
+}
+a .fa-home{
+    font-size: 22px !important;
+}
+.normal-link{
     &:not(.active-link)::before{
         content: '';
         border: 2px solid transparent;
         position: absolute;
         width: 0;
-        bottom: -23px;
+        bottom: -30px;
         left: 0;
         transition: .5s all;
     }
     &:hover:not(.active-link)::before{
         width: 100%;
-        border-color: #FF7300;
+        border-color: #FF0000;
     }
-}
-a.active-link{
-    color:#FF7300;
 }

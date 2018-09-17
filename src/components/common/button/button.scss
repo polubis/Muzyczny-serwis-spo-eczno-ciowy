@@ -1,0 +1,39 @@
+.btn{
+    font-size: 16px;
+}
+.normal-btn{
+    border: none;
+    font-family: inherit;
+    letter-spacing: inherit;
+    font-weight: 700;
+    transition: .5s all;
+    border-radius: 2px;
+    min-width: 150px;
+    i{
+        margin-right: 10px;
+        transition: inherit;
+    }
+  
+}
+.login-btn{
+    background: #FF0000;
+    color: #f2f2f2;
+    &:hover{
+        background: transparent;
+    }
+    &:hover i{
+        transform: rotate(180deg);
+    }
+}
+.login-btn-focused{
+    background: transparent;
+    i{
+        transform: rotate(180deg);
+    }
+}
+
+.register-btn{
+    border: 1px solid #f2f2f2;
+    color: #f2f2f2;
+    background: transparent;
+}

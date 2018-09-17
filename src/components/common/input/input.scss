@@ -1,0 +1,33 @@
+.input-container{
+    display: flex;
+    flex-flow: column;
+    margin: 15px;
+    width: 42%;
+    label{
+        font-size: 12px;
+        padding-bottom: 5px;
+    }
+    input{
+        padding: 10px;
+        border: none;
+        background: transparent;
+        font-size: 15px;
+        letter-spacing: inherit;
+        transition: .5s all;
+        box-sizing: border-box;
+        width: 100%;
+        border-bottom: 2px solid #848988;
+    }
+    input:not(.invalid-input):focus{
+        border-color:#0FC19A;
+        letter-spacing: 0.2px;
+    }
+    .invalid-input{
+        border-color:#FF0000;
+    }
+    .validation-message{
+        color: #FF0000;
+        font-size: 12px;
+        height: 12px;
+    }
+}
