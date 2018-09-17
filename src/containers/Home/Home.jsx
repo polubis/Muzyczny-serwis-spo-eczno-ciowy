@@ -6,7 +6,7 @@ class Home extends React.PureComponent {
   render() {
     return (
       <div id="home">
-        <figure className="shadow">
+        <figure>
           <div style={{ backgroundImage: `url(${NavBackground})` }} />
         </figure>
         Strona główna

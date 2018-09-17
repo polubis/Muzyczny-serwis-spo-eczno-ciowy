@@ -1,5 +1,15 @@
 import { config as regexConfig } from './regexConfig';
 
+
+export const translateKeys = value => {
+    const translations = {
+        "password": "Hasło",
+        "repeatedPassword": "Powtórzone hasło"
+    }
+
+    return translations[value];
+}
+
 export const registerSettings = [
     {label: "Nazwa użytownika", mode: "input", type: "text", placeholder: "wpisz nazwę użytkownika...", validationSetting: "username"},
     {label: "Adres email", mode: "input", type: "email", placeholder: "wpisz adres email...", validationSetting: "email"},

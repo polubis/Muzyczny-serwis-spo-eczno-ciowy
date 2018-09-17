@@ -1,22 +1,25 @@
 import React from 'react'
 import './form.scss';
-import { validate, validateTwoItems } from './validation.js';
+import { validate, validateTwoItems, validateAllRules } from './validation.js';
 import Input from '../input/input';
+import { generateErrors } from '../../../services/generateErrorsService/generateErrorsService.js';
 
-const addValueAndErrorsAttributes = formItems => {
+const addValueAndErrorsAttributes = (formItems, settings) => {
     const newFormItems = [];
-    for(let key in formItems)
-        newFormItems.push({value: "", error: "", ...formItems[key]});
+    for(let i = 0; i < formItems.length; i++){
+        const setting = settings[formItems[i].validationSetting];
+        newFormItems.push({value: "", errors: generateErrors(formItems[i], setting, i), ...formItems[i]});
+    }
     
     return newFormItems;
 }
 
+
 class Form extends React.PureComponent{
     state = {
-        formItems: addValueAndErrorsAttributes(this.props.formItems),
+        formItems: addValueAndErrorsAttributes(this.props.formItems, this.props.validationSettings),
         isFormDirtyByErrors: false
     }
-
     onChangeInputHandler = (e, index) => {
         const { validationSettings, indexesForValidateTwoItems } = this.props;
         const newFormItems = [...this.state.formItems];
@@ -26,23 +29,7 @@ class Form extends React.PureComponent{
         
         const settingName = newFormItems[index].validationSetting;
 
-        const firstValue = newFormItems[indexesForValidateTwoItems[0]];
-        const secondValue = newFormItems[indexesForValidateTwoItems[1]];
-
-        const itemsContainsValuesForTwoItems = indexesForValidateTwoItems !== undefined && 
-            firstValue.value !== "" && secondValue.value !== "" && (index === indexesForValidateTwoItems[0] || 
-                index === indexesForValidateTwoItems[1]);
-
-
-        if(itemsContainsValuesForTwoItems){
-            const validateTwoItemsResult = validateTwoItems(firstValue.value, 
-                secondValue.value, `Wartości dla pól ${firstValue.label} oraz ${secondValue.label} są różne`);
-            newFormItems[indexesForValidateTwoItems[0]].error = validateTwoItemsResult;
-            newFormItems[indexesForValidateTwoItems[1]].error = validateTwoItemsResult;
-        }
-        else{
-            newFormItems[index].error = validate(value, validationSettings[settingName], newFormItems[index].label);
-        }
+        newFormItems[index].errors = validateAllRules(value, validationSettings[settingName], newFormItems[index].errors);
 
         this.setState({formItems: newFormItems, isFormDirtyByErrors: this.checkIsFormDirty(newFormItems)});
     }
@@ -53,23 +40,7 @@ class Form extends React.PureComponent{
 
         for(let i = 0; i < newFormItems.length; i++){
             const settingName = newFormItems[i].validationSetting;
-
-            const firstValue = newFormItems[indexesForValidateTwoItems[0]];
-            const secondValue = newFormItems[indexesForValidateTwoItems[1]];
-
-            const itemsContainsValuesForTwoItems = indexesForValidateTwoItems !== undefined && 
-            firstValue.value !== "" && secondValue.value !== "" && (i === indexesForValidateTwoItems[0] || 
-                i === indexesForValidateTwoItems[1]);
-
-            if(itemsContainsValuesForTwoItems){
-                const validateTwoItemsResult = validateTwoItems(firstValue.value, 
-                    secondValue.value, `Wartości dla pól ${firstValue.label} oraz ${secondValue.label} są różne`);
-                newFormItems[indexesForValidateTwoItems[0]].error = validateTwoItemsResult;
-                newFormItems[indexesForValidateTwoItems[1]].error = validateTwoItemsResult;
-            }
-            else{
-                newFormItems[i].error = validate(newFormItems[i].value, validationSettings[settingName], newFormItems[i].label);
-            }            
+            newFormItems[i].errors = validateAllRules(newFormItems[i].value, validationSettings[settingName], newFormItems[i].errors);
         }
 
         return { formItems: newFormItems, isFormDirtyByErrors: this.checkIsFormDirty(newFormItems) };
@@ -87,10 +58,14 @@ class Form extends React.PureComponent{
     }
 
     checkIsFormDirty = formItems => {
-        for(let key in formItems)
-            if(formItems[key].error !== "")
+        for(let key in formItems){
+            const isError = formItems[key].errors.find(i => {
+                return i.isError === true
+            });
+
+            if(isError)
                 return true;
-        
+        }
         return false;
     }
 
