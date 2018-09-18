@@ -1,5 +1,5 @@
 export const config = {
-    username: /^[a-zA-Z0-9_-]+$/i,
+    username: /^[a-zA-Z0-9_ -]+$/i,
     number: /[0-9]/,
     firstName: /^[A-Z][a-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]+$/i,
     lastName: /^[-a-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]+$/i,

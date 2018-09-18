@@ -8,7 +8,7 @@ export const registerSettings = [
     {label: "Imię", mode: "input", type: "text", placeholder: "wpisz imię...", validationSetting: "firstName"},
     {label: "Nazwisko", mode: "input", type: "text", placeholder: "wpisz nazwisko...", validationSetting: "lastName"},
     {label: "Data urodzenia", mode: "date-picker", type: "date", validationSetting: "birthDate"},
-    {label: "Płeć", mode: "check", type: "checkbox", placeholder: "wybierz swoją płeć...", validationSetting: "sex"}
+    {label: "Płeć", mode: "check", type: "checkbox", placeholder: "wybierz swoją płeć...", validationSetting: "sex", checkValueTrue: "Mężczyzna", checkValueFalse: "Kobieta"}
 ];
 
 export const registerValidationSettings = {
